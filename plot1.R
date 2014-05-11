@@ -1,0 +1,7 @@
+pow<-read.csv("household_power_consumption.txt",sep=";")
+powselect<-(pow[66637:69516,])
+datetime<-paste(powselect$Date,powselect$Time)
+powselect<-cbind(datetime,powselect)
+png(file="plot1.png")
+hist(((as.numeric(powselect$ Global_active_power))/1000),col="RED",xlab="Global Active Power (kilowatts)",main="Global Active Power")
+dev.off()
